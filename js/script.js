@@ -4,9 +4,6 @@ FSJS project 2 - List Filter and Pagination
 ******************************************/
 
 //global variable needed throughout this project.
-const div = document.querySelector('.page');
-const studentDetails = document.querySelector('.student-details');
-const ul = document.querySelector('.student-list');
 const lis = document.querySelectorAll('.student-item');
 const perPage = 10;
 
@@ -26,6 +23,7 @@ showPage(lis, 1);
 
 
 const appendPageLinks = (list) => {
+  const div = document.querySelector('.page');
   const pageDiv = document.createElement('div'); //creates div container
     pageDiv.className = 'pagination'; //gives div the class
     div.appendChild(pageDiv);
