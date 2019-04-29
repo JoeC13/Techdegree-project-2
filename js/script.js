@@ -44,9 +44,8 @@ const appendPageLinks = (list) => {
 
 //addEventListener that runs the show_page function when clicked and adds/removes class 'active'
     pageUl.addEventListener('click', () => {
-
       for (let i = 0; i < aTag.length; i +=1){
-        aTag[i].className = '';
+      aTag[i].className = '';
       }
       event.target.className = 'active';
       let pageNum = event.target.textContent;
