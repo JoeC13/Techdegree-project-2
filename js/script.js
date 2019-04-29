@@ -17,7 +17,7 @@ FSJS project 2 - List Filter and Pagination
    scoped to that function.
 ***/
 
-//global variable needed throughout.
+//global variable needed throughout this project.
 const div = document.querySelector('.page');
 const studentDetails = document.querySelector('.student-details');
 const ul = document.querySelector('.student-list');
@@ -43,20 +43,24 @@ const appendPageLinks = (list) => {
   const pageDiv = document.createElement('div'); //creates div container
     pageDiv.className = 'pagination'; //gives div the class
     div.appendChild(pageDiv);
-  const pageUl = document.createElement('ul');
-    pageDiv.appendChild(pageUl);
-  const pageList = document.createElement('li');
+  const pageUl = document.createElement('ul'); //creates unordered list
+    pageDiv.appendChild(pageUl); //attaches the ul to the div
+  const pageList = document.createElement('li'); //creates list element
 // for loop that adds 'a' tags to list
     for(let i = 0; i < list.length / perPage; i += 1){
       const aLink = document.createElement('a');
-      pageUl.appendChild(pageList);
-      pageList.appendChild(aLink);
+      pageUl.appendChild(pageList); //attaches list element to the ul
+      pageList.appendChild(aLink); //attaches the a tag to the list element
       aLink.href = '#';
       aLink.textContent = i + 1;
       }
+
+      const aTag = document.querySelectorAll('a'); //variable that selects all 'a' tags
+      aTag[0].className = 'active'; // adds class_name of 'active' to first page link.
+
 //addEventListener that runs the show_page function when clicked and adds/removes class 'active'
     pageUl.addEventListener('click', () => {
-      const aTag = document.querySelectorAll('a');
+
       for (let i = 0; i < aTag.length; i +=1){
         aTag[i].className = '';
       }
@@ -65,32 +69,4 @@ const appendPageLinks = (list) => {
       showPage(list, parseInt(pageNum));
     });
   };
-  appendPageLinks(lis);
-
-
-/***
-   Create the `showPage` function to hide all of the items in the
-   list except for the ten you want to show.
-
-   Pro Tips:
-     - Keep in mind that with a list of 54 students, the last page
-       will only display four.
-     - Remember that the first student has an index of 0.
-     - Remember that a function `parameter` goes in the parens when
-       you initially define the function, and it acts as a variable
-       or a placeholder to represent the actual function `argument`
-       that will be passed into the parens later when you call or
-       "invoke" the function
-***/
-
-
-
-
-/***
-   Create the `appendPageLinks function` to generate, append, and add
-   functionality to the pagination buttons.
-***/
-
-
-
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
+  appendPageLinks(lis); //runs the appends_page_links function.
