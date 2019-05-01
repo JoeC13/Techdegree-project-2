@@ -17,7 +17,7 @@ const showPage = (list, page) => {
    } else {
      list[i].style.display = 'none';
    }
- }
+ };
 };
 showPage(lis, 1);
 
@@ -37,7 +37,7 @@ const appendPageLinks = (list) => {
       pageList.appendChild(aLink); //attaches the a tag to the list element
       aLink.href = '#';
       aLink.textContent = i + 1;
-      }
+    };
 
       const aTag = document.querySelectorAll('a'); //variable that selects all 'a' tags
       aTag[0].className = 'active'; // adds class_name of 'active' to first page link.
@@ -46,7 +46,7 @@ const appendPageLinks = (list) => {
     pageUl.addEventListener('click', () => {
       for (let i = 0; i < aTag.length; i +=1){
       aTag[i].className = '';
-      }
+    };
       event.target.className = 'active';
       let pageNum = event.target.textContent;
       showPage(list, parseInt(pageNum));
